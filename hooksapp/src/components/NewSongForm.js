@@ -5,7 +5,7 @@ const NewSongForm = ({addSong}) => {
 
     const handleSubmit=(e)=>{
         e.preventDefault()
-        console.log(title)
+        // console.log(title)
         addSong(title)
         setTitle("")
     }
