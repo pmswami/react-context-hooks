@@ -17,5 +17,5 @@ const ThemeToggle = () => {
         <button onClick={toggleTheme}>Toggle the theme</button>
      );
 }
- 
+
 export default ThemeToggle;
