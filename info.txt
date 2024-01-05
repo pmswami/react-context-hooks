@@ -1,0 +1,19 @@
+Context provides clean and easy way to share state between components
+Hooks tap into the inner workings of React in functional components
+Context API provides a way to share state withing components
+It doesnt use props, Props can become complex for larger applications
+Context is global state that is shared between all the components
+Context API Provider is used to wrap the components and any of the components can start using it if required.
+React Hooks:
+    Special Functions
+    Allows us to do additional things inside functional components
+
+    useState()
+        use state within a functional component 
+    useEffect()
+        run code when a component renders(or re-renders)
+    useContext()
+        consume context in a functional component
+
+Reducers are used when components contains alot of contexts and methods to be passed
+It provides single function to use.
