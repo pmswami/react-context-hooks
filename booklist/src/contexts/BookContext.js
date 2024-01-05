@@ -1,15 +1,22 @@
-import React, {createContext, useState, useReducer} from 'react';
+import React, {createContext, useState, useReducer, useEffect} from 'react';
 import uuid from "react-uuid"
 import { bookReducer } from '../reducers/bookReducer';
 
 export const BookContext = createContext()
 
 const BookContextProvider = (props) => {
-    const [books, dispatch] = useReducer(bookReducer, [
-        { title: "The Name of The Wind", author:"Patrick Rothfuss", id:1 },
-        { title: "The Final Empire",author: "Brandon Sanderson", id:2 },
-    ])
-
+    const [books, dispatch] = useReducer(bookReducer, [], ()=>{
+        const localData = localStorage.getItem("books")
+        console.log(localData)
+        return localData ? JSON.parse(localData) : []
+    })
+    // const [books, dispatch] = useReducer(bookReducer, [
+    //     { title: "The Name of The Wind", author:"Patrick Rothfuss", id:1 },
+    //     { title: "The Final Empire",author: "Brandon Sanderson", id:2 },
+    // ])
+    useEffect(()=>{
+        localStorage.setItem("books", JSON.stringify(books), [books])
+    })
     // const [ books, setBooks ] = useState([
     //     { title: "The Name of The Wind", author:"Patrick Rothfuss", id:1 },
     //     { title: "The Final Empire",author: "Brandon Sanderson", id:2 },
